@@ -2,32 +2,218 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, #4F46E5, #6430AC);
+  color: white;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+h1 {
+  font-size: 2rem; 
+  font-weight: bold; 
+  margin-bottom: 1rem; 
+}
+
+h2 {
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1rem; 
+  font-weight: bold; 
+  margin-bottom: 0.25rem;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 1rem;
+  border-left: 4px solid #ccc;
+  color: #666; 
+}
+
+blockquote p {
+  margin: 0; 
+}
+
+blockquote footer {
+  margin-top: 0.5rem; 
+  font-style: italic; 
+  color: #888;
+}
+.markdown a {
+  color: #007bff; 
+  text-decoration: none; 
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+
+table {
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  border-spacing: 0 0;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+thead tr {
+  background-color: #656773;
+}
+
+thead tr th {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-bottom-width: 1px solid #ddd;
+}
+
+thead tr th:first-child {
+  border-top-left-radius: 10px;
+}
+
+thead tr th:last-child {
+  border-top-right-radius: 10px;
+}
+
+tbody tr td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+tbody tr:last-child td:nth-child(1) {
+  border-bottom-left-radius: 10px;
+}
+
+/* Style for unordered list (ul) */
+ul {
+  list-style-type: disc; /* Style of bullet point (default is disc) */
+  margin-left: 1.5rem; /* Adjust left margin as needed */
+}
+
+/* Style for ordered list (ol) */
+ol {
+  list-style-type: decimal; /* Style of numbering (default is decimal) */
+  margin-left: 1.5rem; /* Adjust left margin as needed */
+}
+
+/* Style for list items (li) */
+li {
+  margin-bottom: 0.5rem; /* Adjust spacing between list items */
+}
+
+img{
+  padding-block: 1rem;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+  padding: 0;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #30363D;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: -125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
