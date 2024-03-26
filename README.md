@@ -1,7 +1,7 @@
 
 # QuickMark
 
-[QuickMark](https://quickmark.vercel.app/) is a Markdown editor for creating and editing markdown files, with syntax highlighting and live preview.
+[QuickMark](https://quickmark1.vercel.app/) is a Markdown editor for creating and editing markdown files, with syntax highlighting and live preview.
 
 
 ## Images
