@@ -48,7 +48,7 @@ export default function Markdown() {
     <div className="flex flex-col h-full py-5 ">
       <div className="flex lg:flex-row flex-col gap-4 lg:gap-0">
         <div className="flex flex-1 items-center justify-center">
-          <div className="flex flex-col w-full lg:pr-5 pr-3 h-full relative">
+          <div className="flex flex-col w-full lg:pr-5 pr-0 h-full relative">
             <Textarea
               placeholder="Type your Markdown here."
               className="w-full h-96 bg-[#0D1117] border-[#30363D]"
@@ -66,7 +66,7 @@ export default function Markdown() {
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="flex flex-col w-full lg:pl-5 pl-3 h-full">
+          <div className="flex flex-col w-full lg:pl-5 pl-0 h-full">
             <div
               className="w-full bg-[#0D1117] h-96 overflow-auto rounded-md p-3 border border-[#30363D] markdown"
               style={{ height: textareaHeight + 17.43 }}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function Navbar() {
   return (
@@ -9,8 +10,8 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center font-semibold">
-          <Link href="/markdown" id="inside">
-            Markdown
+          <Link href="/markdown" id="inside" className="text-nowrap flex items-center justify-center gap-1 hover:underline">
+            Markdown<FiExternalLink/>
           </Link>
         </div>
       </nav>
