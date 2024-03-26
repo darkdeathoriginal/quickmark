@@ -6,6 +6,6 @@
 
 ## Images
 
-![Screenshot1](https://quickmark.vercel.app/screenshots/1.png)
+![Screenshot1](https://quickmark1.vercel.app/screenshots/1.png)
 
-![Screenshot2](https://quickmark.vercel.app/screenshots/2.png)
+![Screenshot2](https://quickmark1.vercel.app/screenshots/2.png)
