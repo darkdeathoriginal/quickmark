@@ -45,7 +45,7 @@ export default function Markdown() {
   }, []);
 
   return (
-    <div className="flex flex-col h-full pt-5 ">
+    <div className="flex flex-col h-full py-5 ">
       <div className="flex lg:flex-row flex-col gap-4 lg:gap-0">
         <div className="flex flex-1 items-center justify-center">
           <div className="flex flex-col w-full pr-5 h-full relative">
