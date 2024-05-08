@@ -16,6 +16,34 @@ import {
 } from "react-icons/lu";
 import { GoHorizontalRule } from "react-icons/go";
 export default function MdButtons({ setInputText,inputText }) {
+  const insertTextAtCursor = (text,prefix,postfix) => {
+    const textarea = document.querySelector("textarea");
+    const startPos = textarea.selectionStart;
+    const endPos = textarea.selectionEnd;
+    const scrollTop = textarea.scrollTop;
+    if(startPos === endPos || !(prefix || postfix)){
+    textarea.value =
+      textarea.value.substring(0, startPos) +
+      text +
+      textarea.value.substring(endPos, textarea.value.length);
+      textarea.selectionStart = startPos;
+      textarea.selectionEnd = startPos + text.length;
+    }
+    else{
+      textarea.value =
+      textarea.value.substring(0, startPos) +
+      prefix + textarea.value.substring(startPos, endPos) + postfix +
+      textarea.value.substring(endPos, textarea.value.length);
+      textarea.selectionStart = startPos;
+      textarea.selectionEnd = startPos + prefix.length + endPos - startPos + postfix.length;
+    }
+    textarea.focus();
+    setInputText(textarea.value);
+    textarea.scrollTop = scrollTop;
+  };
+
+
+
   const buttons = [
     {
       text: "Clear",
@@ -24,59 +52,59 @@ export default function MdButtons({ setInputText,inputText }) {
     },
     {
       text: "Heading",
-      action: () => setInputText(inputText + "\n# Heading"),
+      action: () => insertTextAtCursor( "# Heading\n", "# ", ""),
       icon: <LuHeading />,
     },
     {
       text: "Bold",
-      action: () => setInputText(inputText + " **Bold**"),
+      action: () => insertTextAtCursor( " **Bold**","**", "**"),
       icon: <LuBold />,
     },
     {
       text: "Italic",
-      action: () => setInputText(inputText + " _Italic_"),
+      action: () => insertTextAtCursor( " _Italic_", "_", "_"),
       icon: <LuItalic />,
     },
     {
       text: "Strikethrough",
-      action: () => setInputText(inputText + " ~~Strikethrough~~"),
+      action: () => insertTextAtCursor( " ~~Strikethrough~~", "~~", "~~"),
       icon: <LuStrikethrough />,
     },
     {
       text: "List item",
-      action: () => setInputText(inputText + "\n- List item"),
+      action: () => insertTextAtCursor( "\n- List item", "- " , ""),
       icon: <LuList />,
     },
     {
       text: "Numbered list item",
-      action: () => setInputText(inputText + "\n1. Numbered list item"),
+      action: () => insertTextAtCursor( "\n1. Numbered list item", "1. ", ""),
       icon: <LuListOrdered />,
     },
     {
       text: "Todo list item",
-      action: () => setInputText(inputText + "\n- [ ] Todo list item"),
+      action: () => insertTextAtCursor( "\n- [ ] Todo list item", "- [ ] " , ""),
       icon: <LuListTodo />,
     },
     {
       text: "Quote",
-      action: () => setInputText(inputText + "\n> Quote"),
+      action: () => insertTextAtCursor( "\n> Quote", "> " , ""),
       icon: <LuQuote />,
     },
     {
       text: "Code block",
-      action: () => setInputText(inputText + "\n```js\n// Code block\n```"),
+      action: () => insertTextAtCursor( "\n```js\n// Code block\n```", "```js\n", "\n```"),
       icon: <LuCode />,
     },
     {
       text: "Link",
-      action: () => setInputText(inputText + "\n[Link](https://example.com)"),
+      action: () => insertTextAtCursor( "\n[Link](https://example.com)", "[", "](https://example.com)"),
       icon: <LuLink />,
     },
     {
       text: "Image",
       action: () =>
-        setInputText(
-          inputText +
+        insertTextAtCursor(
+          
             "\n![Image](https://upload.wikimedia.org/wikipedia/en/c/c6/Pluto_discovery_plates.png)"
         ),
       icon: <LuImage />,
@@ -84,15 +112,15 @@ export default function MdButtons({ setInputText,inputText }) {
     {
       text: "Table",
       action: () =>
-        setInputText(
-          inputText +
+        insertTextAtCursor(
+          
             "\n| Header 1 | Header 2 |\n| - | - |\n| Cell 1   | Cell 2   |"
         ),
       icon: <LuTable />,
     },
     {
       text: "Horizontal rule",
-      action: () => setInputText(inputText + "\n---"),
+      action: () => insertTextAtCursor( "\n---"),
       icon: <GoHorizontalRule />,
     },
   ];
